@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for an Event | Planora</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Planora<span>.</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="my-registrations.html">My Registrations</a>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="section-heading">
+            <p class="eyebrow">SAVE YOUR SPOT</p>
+            <h1>Register for an Event</h1>
+            <p>Fill in your details and get ready for an amazing campus experience.</p>
+        </div>
+
+        <div class="form-container">
+            <form id="registrationForm">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                        minlength="3"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input
+                        type="text"
+                        id="studentId"
+                        name="studentId"
+                        placeholder="Enter your student ID"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="department" required>
+                        <option value="">Select your department</option>
+                        <option value="Computer Applications">Computer Applications</option>
+                        <option value="Commerce">Commerce</option>
+                        <option value="Management">Management</option>
+                        <option value="Science">Science</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="studyYear">Year of Study</label>
+                    <select id="studyYear" name="studyYear" required>
+                        <option value="">Select your year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventName">Select Event</label>
+                    <select id="eventName" name="eventName" required>
+                        <option value="">Choose an event</option>
+                        <option value="Rhythm Night">Rhythm Night</option>
+                        <option value="Tech Innovate">Tech Innovate</option>
+                        <option value="Creative Canvas">Creative Canvas</option>
+                        <option value="Campus Sports Day">Campus Sports Day</option>
+                        <option value="Future Skills Workshop">Future Skills Workshop</option>
+                        <option value="Green Campus Day">Green Campus Day</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit">
+                    Complete Registration →
+                </button>
+
+                <p class="form-note">
+                    Please check your details before submitting.
+                </p>
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Planora. Made for memorable campus experiences.</p>
+    </footer>
+
+</body>
+</html>

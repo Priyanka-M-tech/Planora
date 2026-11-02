@@ -1,0 +1,90 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful | Planora</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Planora<span>.</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="my-registrations.html">My Registrations</a>
+        </nav>
+    </header>
+
+    <main class="section">
+
+        <div class="success-box">
+            <div class="success-icon">🎉</div>
+
+            <p class="eyebrow">REGISTRATION CONFIRMED</p>
+
+            <h1>You're All Set!</h1>
+
+            <p id="successMessage">
+                Your registration has been completed successfully.
+            </p>
+
+            <div id="registrationDetails" class="registration-item">
+                Loading your registration details...
+            </div>
+
+            <div class="hero-buttons" style="justify-content: center; margin-top: 25px;">
+                <a href="events.html" class="primary-button">
+                    Explore More Events
+                </a>
+
+                <a href="my-registrations.html" class="secondary-button">
+                    My Registrations
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Planora. Made for memorable campus experiences.</p>
+    </footer>
+
+    <script>
+        const latestRegistration = JSON.parse(
+            localStorage.getItem("planoraLatestRegistration") || "null"
+        );
+
+        const details = document.getElementById("registrationDetails");
+        const message = document.getElementById("successMessage");
+
+        if (latestRegistration) {
+            message.textContent =
+                "Congratulations, " + latestRegistration.fullName +
+                "! Your event registration is confirmed.";
+
+            details.innerHTML = `
+                <h3>Registration Details</h3>
+                <p><strong>Registration ID:</strong> ${latestRegistration.registrationId}</p>
+                <p><strong>Name:</strong> ${latestRegistration.fullName}</p>
+                <p><strong>Event:</strong> ${latestRegistration.eventName}</p>
+                <p><strong>Department:</strong> ${latestRegistration.department}</p>
+                <p><strong>Year:</strong> ${latestRegistration.studyYear}</p>
+                <p><strong>Email:</strong> ${latestRegistration.email}</p>
+            `;
+        } else {
+            details.textContent =
+                "No registration details found. Please register for an event first.";
+        }
+    </script>
+
+</body>
+</html>
+```

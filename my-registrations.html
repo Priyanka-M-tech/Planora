@@ -1,0 +1,89 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations | Planora</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Planora<span>.</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="my-registrations.html">My Registrations</a>
+        </nav>
+    </header>
+
+    <main class="section">
+
+        <div class="section-heading">
+            <p class="eyebrow">YOUR CAMPUS JOURNEY</p>
+            <h1>My Registrations</h1>
+            <p>All your registered campus events, together in one place.</p>
+        </div>
+
+        <div class="content-box">
+
+            <div id="registrationList">
+                Loading your registrations...
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="events.html" class="primary-button">
+                    + Register for More Events
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Planora. Made for memorable campus experiences.</p>
+    </footer>
+
+    <script>
+        const registrationList = document.getElementById("registrationList");
+
+        const registrations = JSON.parse(
+            localStorage.getItem("planoraRegistrations") || "[]"
+        );
+
+        if (registrations.length === 0) {
+            registrationList.innerHTML = `
+                <div style="text-align: center; padding: 25px 0;">
+                    <div style="font-size: 45px;">📅</div>
+                    <h2>No Registrations Yet</h2>
+                    <p style="color: #777087; margin-top: 10px;">
+                        You haven't registered for any campus events yet.
+                    </p>
+                </div>
+            `;
+        } else {
+            registrationList.innerHTML = registrations.map(registration => `
+                <div class="registration-item">
+                    <h3>${registration.eventName}</h3>
+                    <p><strong>Registration ID:</strong> ${registration.registrationId}</p>
+                    <p><strong>Name:</strong> ${registration.fullName}</p>
+                    <p><strong>Student ID:</strong> ${registration.studentId}</p>
+                    <p><strong>Email:</strong> ${registration.email}</p>
+                    <p><strong>Department:</strong> ${registration.department}</p>
+                    <p><strong>Year:</strong> ${registration.studyYear}</p>
+                    <p><strong>Registration Date:</strong> ${registration.registrationDate}</p>
+                </div>
+            `).join("");
+        }
+    </script>
+
+</body>
+</html>
+```
